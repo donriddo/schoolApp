@@ -45,7 +45,11 @@ module.exports = {
   	},
   	sex: {
   		type: 'string'
-  	}
+  	},
+    isAdmin: {
+      type: 'boolean',
+      defaultsTo: false
+    }
 
   }
 };

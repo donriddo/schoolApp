@@ -22,6 +22,7 @@ module.exports = {
 				req.session.authenticated = true;
 				res.cookie('id', student.id);
 				res.cookie('accountType', 'student');
+				res.cookie('isAdmin', student.isAdmin);
 				console.log(req.session);
 				res.redirect('/student/' + student.id);
 			}
@@ -32,10 +33,8 @@ module.exports = {
 			if (err) {
 				console.log(err);
 			} else if ('undefined' == typeof student) {
-				console.log('student is undefined', 'How the hell am I running?');
 				res.redirect('/student');
 			} else {
-				console.log(req.param('id'), ' << Hey You! Student, I found you');
 				res.view({
 					student: student
 				});
@@ -45,14 +44,15 @@ module.exports = {
 	index: function (req, res, next) {
 		Student.find(function(err, students) {
 			if (err) {
-				console.log('I encountered a fatal error in index');
 				console.log(err);
 			} else if ('undefined' == typeof students) {
 				res.redirect('/');
-			} else {
+			} else if (req.cookies.isAdmin == 'true') {
 				res.view({
 					students: students
 				});
+			} else {
+				res.redirect('/student/'+req.cookies.id);
 			}
 		});
 	},
@@ -106,9 +106,11 @@ module.exports = {
 				console.log('Student does not exist');
 				res.redirect('/');
 			} else if (student && student.password == req.body.password) {
+				console.log('checking out the new db\n' + student.isAdmin);
 				req.session.authenticated = true;
 				res.cookie('id', student.id);
 				res.cookie('accountType', 'student');
+				res.cookie('isAdmin', student.isAdmin);
 				console.log('Signing as ' + req.body.username + ' with id: ' + student.id)
 				res.redirect('/student/' + student.id);
 			} else {

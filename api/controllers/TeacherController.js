@@ -24,6 +24,7 @@ module.exports = {
 				req.session.authenticated = true;
 				res.cookie('id', teacher.id);
 				res.cookie('accountType', 'teacher');
+				res.cookie('isAdmin', teacher.isAdmin);
 				res.redirect('/teacher/' + teacher.id);
 			}
 		});
@@ -49,10 +50,12 @@ module.exports = {
 				console.log(err);
 			} else if ('undefined' == typeof teachers) {
 				res.redirect('/');
-			} else {
+			} else if (req.cookies.isAdmin == 'true') {
 				res.view({
 					teachers: teachers
 				});
+			} else {
+				res.redirect('/teacher/'+req.cookies.id);
 			}
 		});
 	},
@@ -108,6 +111,7 @@ module.exports = {
 				req.session.authenticated = true;
 				res.cookie('id', teacher.id);
 				res.cookie('accountType', 'teacher');
+				res.cookie('isAdmin', teacher.isAdmin);
 				console.log('Signing as ' + req.body.username + ' with id: ' + teacher.id);
 				res.redirect('/teacher/' + teacher.id);
 			} else {

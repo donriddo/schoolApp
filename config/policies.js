@@ -25,16 +25,20 @@ module.exports.policies = {
   * access)                                                                  *
   *                                                                          *
   ***************************************************************************/
-  
+
    '*': ['flash', 'sessionAuth'],
    HomeController: {
      '*' : 'flash'
    },
    TeacherController: {
-     signin: true
+     signin: true,
+     form: true,
+     create: true
    },
    StudentController: {
-     signin: true
+     signin: true,
+     form: true,
+     create: true
    }
 
 
