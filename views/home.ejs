@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="jumbotron">
+		<h1>Welcome to Our School</h1>
+		<h4>Now Let's get Studying</h4> <br>
+		<div class='container'>
+			<a class="btn btn-lg btn-warning pull-left" href="/add-teacher"> Create a profile ( Teacher )</a>
+			<a class="btn btn-lg btn-primary pull-right" href="/add-student">Create a profile ( Student )</a>
+		</div>
+	</div>
+</div>
+
+<div class='container'>
+	<div class="row">
+		<div class="col-xs-6">
+			<h1>Sign in as a Teacher</h1>
+	<form action="/teacher/signin" method='post'>
+		<input type="input" name="username" class="form-control" placeholder="Username"><br>
+		<input type="password" name="password" class="form-control" placeholder="Password"><br>
+		<input type="submit" class="btn btn-lg btn-success" value="Sign In">
+	</form>
+	</div>
+
+	<div class="col-xs-6">
+		<h1>Sign in as a Student</h1>
+		<form action="/student/signin" method='post'>
+	<input type="input" name="username" class="form-control" placeholder="Username"><br>
+	<input type="password" name="password" class="form-control" placeholder="Password"><br>
+	<input type="submit" class="btn btn-lg btn-success" value="Sign In">
+</form>
+</div>
+</div>
+
+</div>

@@ -1,0 +1,26 @@
+<div class="container">
+	<h1>Create an Account</h1>
+	<form action="/add-student" method="post">
+        <% if (flash && flash.err) { %>
+                <ul class="alert alert-danger">
+                    <% Object.keys(flash.err).forEach(function (error) { %>
+                        <li><%= JSON.stringify(flash.err[error]) %></li>
+                    <% }); %>
+                </ul>
+        <% } %>
+		<input type="text" name="name" placeholder="Your Name" class="form-control"><br>
+		<input type="email" name="email" placeholder="Email" class="form-control"><br>
+		<input type="text" name="username" placeholder="Choose a Username" class="form-control"><br>
+		<input type="password" name="password" placeholder="Choose a Password" class="form-control"><br>
+		<input type="number" name="age" placeholder="Age" class="form-control"><br>
+		<input type="text" name="address" placeholder="Address" class="form-control"><br>
+		<input type="text" name="department" placeholder="Department" class="form-control"><br>
+		<input type="text" name="classLevel" placeholder="Class" class="form-control"><br>
+		<input type="tel" name="tel" placeholder="Mobile number" class="form-control"><br>
+		<select name="sex" class="form-control">
+			<option name="sex">Male</option>
+			<option name="sex">Female</option>
+		</select><br>
+		<input type="submit" class="btn btn-lg btn-primary" value="Sign Up">
+	</form>
+</div>

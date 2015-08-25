@@ -1,0 +1,41 @@
+<div class="container">
+	<h1>Students</h1>
+	<table class="table">
+	<tr>
+	<th>ID</th>
+	<th>Name</th>
+	<th>Email</th>
+	<th>Address</th>
+	<th>Age</th>
+	<th>Department</th>
+	<th>Class</th>
+	<th>Mobile Number</th>
+	<th>Sex</th>
+	<th></th>
+	<th></th>
+	<th></th>
+	</tr>
+
+
+	<% _.each(students, function (student){ %>
+		<tr data-id="<%=student.id%>" data-model="student">
+		<td><%=student.id%></td>
+		<td><%=student.name%></td>
+		<td><%=student.email%></td>
+		<td><%=student.address%></td>
+		<td><%=student.age%></td>
+		<td><%=student.department%></td>
+		<td><%=student.classLevel%></td>
+		<td><%=student.tel%></td>
+		<td><%=student.sex%></td>
+		<td><a href="/student/<%=student.id%>" class="btn btn-sm btn-primary">Show</a></td>
+		<td><a href="/student/update/<%=student.id%>" class="btn btn-sm btn-warning">Edit</a></td>
+		<td><form action="/student/destroy/<%=student.id%>" method="post">
+				<input type="hidden" name="_method" value="delete">
+				<input type="submit" class="btn btn-sm btn-danger" value="Delete">
+			</form>
+		</td>
+	<% }) %>
+
+	</table
+</div>

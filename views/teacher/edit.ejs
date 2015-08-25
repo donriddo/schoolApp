@@ -1,0 +1,21 @@
+<div class="container">
+	<h1>Update Your Account</h1>
+	<form action="/teacher/update/<%=teacher.id%>" method="post">
+		<% if (flash && flash.err) { %>
+						<ul class="alert alert-danger">
+								<% Object.keys(flash.err).forEach(function (error) { %>
+										<li><%= JSON.stringify(flash.err[error]) %></li>
+								<% }); %>
+						</ul>
+		<% } %>
+		<input type="text" name="name" value="<%=teacher.name%>" class="form-control"><br>
+		<input type="email" name="email" value="<%=teacher.email%>" class="form-control"><br>
+		<input type="text" name="address" value="<%=teacher.address%>" class="form-control"><br>
+		<input type="tel" name="tel" value="<%=teacher.tel%>" class="form-control"><br>
+		<select name="sex" class="form-control">
+			<option name="sex">Male</option>
+			<option name="sex">Female</option>
+		</select><br>
+		<input type="submit" class="btn btn-lg btn-success" value="Update">
+	</form>
+</div>
