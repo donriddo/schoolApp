@@ -32,7 +32,7 @@ module.exports = {
 			if (err) {
 				console.log(err);
 			} else if ('undefined' == typeof student) {
-				console.log('student is undefined');
+				console.log('student is undefined', 'How the hell am I running?');
 				res.redirect('/student');
 			} else {
 				console.log(req.param('id'), ' << Hey You! Student, I found you');
@@ -98,7 +98,6 @@ module.exports = {
 		});
 	},
 	signin: function (req, res, next) {
-		console.log(req.body);
 		Student.findOne({ username: req.body.username }, function (err, student) {
 			if (err) {
 				console.log('Database Error');
@@ -116,6 +115,12 @@ module.exports = {
 				res.redirect ('/');
 			}
 		});
+	},
+	logout: function (req, res, next) {
+		console.log('I am the logout running');
+		req.session.authenticated = false;
+		res.redirect('/');
 	}
+
 
 };

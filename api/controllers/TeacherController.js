@@ -114,6 +114,10 @@ module.exports = {
 				res.redirect('/');
 			}
 		});
+	},
+	logout: function (req, res, next) {
+		req.session.authenticated = false;
+		res.redirect('/');
 	}
 
 };

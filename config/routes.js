@@ -45,6 +45,10 @@ module.exports.routes = {
     controller: 'StudentController',
     action: 'create'
   },
+  'get /student/logout' : {
+    controller: 'StudentController',
+    action: 'logout'
+  },
   'get /student/:id': {
     controller: 'StudentController',
     action: 'find'
@@ -73,6 +77,7 @@ module.exports.routes = {
 
 
 
+
   'get /add-teacher': {
     controller: 'TeacherController',
     action: 'form'
@@ -80,6 +85,10 @@ module.exports.routes = {
   'post /add-teacher': {
     controller: 'TeacherController',
     action: 'create'
+  },
+  'get /teacher/logout' : {
+    controller: 'TeacherController',
+    action: 'logout'
   },
   'get /teacher/:id': {
     controller: 'TeacherController',
@@ -105,6 +114,7 @@ module.exports.routes = {
     controller: 'TeacherController',
     action: 'signin'
   }
+
 
 
 
