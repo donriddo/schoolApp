@@ -4,6 +4,7 @@ module.exports = function (req, res, next) {
       return next();
     } else {
       res.locals.flash = _.clone(req.session.flash);
+      req.session.flash = {};
     }
 
     next();
