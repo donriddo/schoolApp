@@ -30,14 +30,12 @@ module.exports = {
 		});
 	},
 	find: function (req, res, next) {
-		console.log(req.cookies);
 		Teacher.findOne(req.param('id'), function (err, teacher) {
 			if (err) {
 				console.log(err);
 			} else if ('undefined' == typeof teacher) {
 				res.redirect('/teacher');
 			} else {
-				console.log(req.param('id'), ' << Hey yo! whatsup');
 				res.view({
 					teacher: teacher
 				});
