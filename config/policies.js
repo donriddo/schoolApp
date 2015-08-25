@@ -25,7 +25,7 @@ module.exports.policies = {
   * access)                                                                  *
   *                                                                          *
   ***************************************************************************/
-
+    // checking out git update
    '*': ['flash', 'sessionAuth'],
    HomeController: {
      '*' : 'flash'
