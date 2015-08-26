@@ -36,7 +36,8 @@ module.exports = {
 				res.redirect('/student');
 			} else {
 				res.view({
-					student: student
+					student: student,
+					cookies: req.cookies
 				});
 			}
 		});

@@ -37,7 +37,8 @@ module.exports = {
 				res.redirect('/teacher');
 			} else {
 				res.view({
-					teacher: teacher
+					teacher: teacher,
+					cookies: req.cookies
 				});
 			}
 		});
