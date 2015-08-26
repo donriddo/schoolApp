@@ -60,7 +60,7 @@ module.exports = {
 	edit: function (req, res, next) {
 		Student.findOne(req.param('id'), function (err, student){
 			if (err) {
-				console.log('error: ', err);
+				console.log(err);
 				req.session.flash = {
 						err: err
 				};
